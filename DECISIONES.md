@@ -181,7 +181,7 @@ respuesta que produjo tu `onErrorResume`.
 `Flux<Producto>`? ¿Seguiría compilando? ¿Seguiría siendo no bloqueante?
 
 >
-
+"He expuesto la lógica de negocio a través de controladores WebFlux. Utilicé tipos de retorno reactivos (Mono y Flux) para asegurar que no existan bloqueos en la comunicación. Además, implementé un GlobalExceptionHandler para mapear excepciones personalizadas a códigos de estado HTTP 404."
 ---
 
 ## Fase 7 — Pruebas unitarias
