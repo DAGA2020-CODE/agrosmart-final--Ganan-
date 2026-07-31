@@ -160,7 +160,7 @@ consulta a base de datos?
 respuesta que produjo tu `onErrorResume`.
 
 ```
-
+"He integrado LangChain4j de forma declarativa usando @AiService. Para mantener la arquitectura no bloqueante, envolví la llamada al modelo de lenguaje en un Mono ejecutado en Schedulers.boundedElastic(). También implementé un mecanismo de recuperación (onErrorResume) para que un fallo en el proveedor de IA no afecte la disponibilidad de mi aplicación."
 ```
 
 ---
