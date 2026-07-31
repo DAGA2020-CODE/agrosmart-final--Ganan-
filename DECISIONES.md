@@ -69,6 +69,8 @@ tipo que generó Hibernate en PostgreSQL.
 **2.4** ¿Cómo hiciste idempotente tu siembra y qué pasaría en el segundo arranque si no
 lo fuera? (piensa en la restricción `unique` de `nombre_producto`)
 
+"He implementado la persistencia usando JPA. Creé la entidad ProductoEntity mapeada a la tabla tbl_productos_base_04 y aseguré que la siembra de 5 datos (3 válidos y 2 inválidos) sea idempotente mediante el uso de CommandLineRunner."
+
 >
 
 ---
