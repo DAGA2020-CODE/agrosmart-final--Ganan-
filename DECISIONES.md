@@ -99,7 +99,7 @@ el ataque concreto que quedaría abierto sobre **tu** clase.
 ```java
 
 ```
-
+"He diseñado el modelo de dominio Producto aplicando inmutabilidad estricta con atributos final y copias defensivas. Además, implementé la lógica de negocio mediante interfaces funcionales (Predicate, Consumer, Function) para garantizar un procesamiento de datos sin efectos secundarios."
 ---
 
 ## Fase 4 — Servicio reactivo y aislamiento del bloqueo
@@ -130,7 +130,7 @@ qué no son intercambiables en esos dos lugares?
 "recibe" el producto?
 
 >
-
+"He implementado el puente entre el mundo bloqueante (JPA) y el reactivo (WebFlux). La decisión técnica más importante fue el uso de Schedulers.boundedElastic() para evitar que las consultas a la base de datos bloqueen el bucle de eventos de Netty. Utilicé operadores como flatMapMany para procesar listas y switchIfEmpty para el manejo elegante de errores."
 ---
 
 ## Fase 5 — Módulo de IA con LangChain4j
