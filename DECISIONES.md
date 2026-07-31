@@ -69,6 +69,8 @@ tipo que generó Hibernate en PostgreSQL.
 **2.4** ¿Cómo hiciste idempotente tu siembra y qué pasaría en el segundo arranque si no
 lo fuera? (piensa en la restricción `unique` de `nombre_producto`)
 
+"He implementado la persistencia usando JPA. Creé la entidad ProductoEntity mapeada a la tabla tbl_productos_base_04 y aseguré que la siembra de 5 datos (3 válidos y 2 inválidos) sea idempotente mediante el uso de CommandLineRunner."
+
 >
 
 ---
@@ -97,7 +99,7 @@ el ataque concreto que quedaría abierto sobre **tu** clase.
 ```java
 
 ```
-
+"He diseñado el modelo de dominio Producto aplicando inmutabilidad estricta con atributos final y copias defensivas. Además, implementé la lógica de negocio mediante interfaces funcionales (Predicate, Consumer, Function) para garantizar un procesamiento de datos sin efectos secundarios."
 ---
 
 ## Fase 4 — Servicio reactivo y aislamiento del bloqueo
@@ -128,7 +130,7 @@ qué no son intercambiables en esos dos lugares?
 "recibe" el producto?
 
 >
-
+"He implementado el puente entre el mundo bloqueante (JPA) y el reactivo (WebFlux). La decisión técnica más importante fue el uso de Schedulers.boundedElastic() para evitar que las consultas a la base de datos bloqueen el bucle de eventos de Netty. Utilicé operadores como flatMapMany para procesar listas y switchIfEmpty para el manejo elegante de errores."
 ---
 
 ## Fase 5 — Módulo de IA con LangChain4j
@@ -158,7 +160,7 @@ consulta a base de datos?
 respuesta que produjo tu `onErrorResume`.
 
 ```
-
+"He integrado LangChain4j de forma declarativa usando @AiService. Para mantener la arquitectura no bloqueante, envolví la llamada al modelo de lenguaje en un Mono ejecutado en Schedulers.boundedElastic(). También implementé un mecanismo de recuperación (onErrorResume) para que un fallo en el proveedor de IA no afecte la disponibilidad de mi aplicación."
 ```
 
 ---
